@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8)
+PROJECT(Test)
+set(CMAKE_MODULE_PATH "/usr/local/lib/cmake/${CMAKE_MODULE_PATH}")
+find_package(raspicam REQUIRED)
+find_package(OpenCV)
+add_executable(Test test.cpp)
+target_link_libraries(Test ${OpenCV_LIBS})
+target_link_libraries(Test /usr/local/lib/libwiringPi.so /usr/local/lib/libwiringPiDev.so ${raspicam_CV_LIBS})
